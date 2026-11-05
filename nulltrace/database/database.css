@@ -1,0 +1,204 @@
+
+/* =================================
+   DATABASE PAGE
+================================= */
+
+.database-page {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.database-intro {
+    max-width: 800px;
+    margin-bottom: 40px;
+}
+
+.database-intro h1 {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.database-intro p {
+    color: var(--muted);
+}
+
+.database-content {
+    max-width: 800px;
+}
+
+
+/* =================================
+   SEARCH
+================================= */
+
+#searchInput {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 25px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text);
+    font-size: 15px;
+}
+
+#searchInput:focus {
+    outline: none;
+    border-color: var(--green);
+}
+
+
+/* =================================
+   MALWARE DATABASE CARDS
+================================= */
+
+.malware-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.malware-card {
+    padding: 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    transition: border-color 0.2s;
+}
+
+.malware-card:hover {
+    border-color: var(--green);
+}
+
+.malware-card h3 {
+    color: var(--green);
+    margin-bottom: 8px;
+}
+
+.malware-card h3 a {
+    color: var(--green);
+    text-decoration: none;
+}
+
+.malware-card h3 a:hover {
+    text-decoration: underline;
+}
+
+.malware-card p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.no-results {
+    color: var(--muted);
+    padding: 20px 0;
+}
+
+
+/* =================================
+   MALWARE PROFILE
+================================= */
+
+.malware-details {
+    max-width: 800px;
+    padding: 20px 0;
+}
+
+.malware-details h2 {
+    font-size: 22px;
+    color: var(--green);
+    margin-top: 45px;
+    margin-bottom: 20px;
+}
+
+.malware-details h2:first-child {
+    margin-top: 0;
+}
+
+.malware-details p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--muted);
+    margin-bottom: 30px;
+}
+
+.malware-details ul {
+    margin-bottom: 35px;
+    padding-left: 25px;
+}
+
+.malware-details li {
+    margin-bottom: 10px;
+    line-height: 1.7;
+}
+
+
+/* =================================
+   PROFILE REFERENCES
+================================= */
+
+.malware-details a {
+    color: var(--green);
+    text-decoration: none;
+}
+
+.malware-details a:hover {
+    text-decoration: underline;
+}
+
+
+/* =================================
+   BACK TO DATABASE
+================================= */
+
+.back-link {
+    max-width: 800px;
+    margin-top: 40px;
+    margin-bottom: 60px;
+}
+
+.back-link a {
+    display: inline-block;
+    color: var(--green);
+    text-decoration: none;
+}
+
+.back-link a:hover {
+    text-decoration: underline;
+}
+
+
+/* =================================
+   FOOTER
+================================= */
+
+.footer {
+    margin-top: 40px;
+    padding: 25px 0;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-family: monospace;
+    font-size: 10px;
+}
+
+/* =================================
+   RESEARCH ARTICLE METADATA
+================================= */
+
+.article-meta {
+    margin-top: 15px;
+    font-family: monospace;
+    font-size: 11px !important;
+    color: var(--green) !important;
+}
+
+/* =================================
+   RESEARCH ARTICLE LIST
+================================= */
+
+.research-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
