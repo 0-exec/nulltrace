@@ -1,0 +1,233 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NullTrace | Mirai</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="database.css">
+</head>
+
+<body>
+ 
+<header class="header">
+    <nav class="container nav-container">
+        <a href="../index.html" class="logo">
+            Null<span>Trace</span>
+        </a>
+
+        <div class="navigation">
+            <a href="../index.html">Home</a>
+            <a href="index.html">Database</a>
+            <a href="../research/index.html">Research</a>
+        </div>
+    </nav>
+</header>
+
+
+    <main class="container">
+
+        <section class="database-intro">
+            <p class="eyebrow">// MALWARE PROFILE</p>
+            <h1>Mirai</h1>
+            <p>Type: IoT Botnet Malware</p>
+        </section>
+
+        <section class="malware-details">
+
+            <h2>Overview</h2>
+
+            <p>
+                Mirai is a malware family first identified in 2016.
+                It primarily targets Internet of Things (IoT) devices,
+                including routers, IP cameras and digital video recorders.
+
+                It infects vulnerable Linux-based devices and turns
+                them into remotely controlled bots. These compromised
+                devices form a botnet that attackers can use to conduct
+                large-scale Distributed Denial-of-Service (DDoS) attacks.
+
+                Mirai became widely known following several major
+                attacks against internet infrastructure in 2016.
+            </p>
+
+            <h2>Technical Details</h2>
+
+            <p>
+                Mirai spreads by scanning the internet for exposed
+                devices with Telnet services. It attempts to access
+                these devices using a built-in list of common
+                default or hardcoded usernames and passwords.
+
+                When authentication succeeds, a separate loader
+                component can download and execute a malware binary
+                suited to the target device's processor architecture.
+
+                Infected devices communicate with command-and-control
+                infrastructure and can receive instructions to
+                participate in DDoS attacks.
+            </p>
+
+            <p>Its observed capabilities included:</p>
+
+            <ul>
+                <li>Scanning for exposed IoT devices</li>
+                <li>Brute-forcing Telnet services using common credentials</li>
+                <li>Infecting Linux-based embedded devices</li>
+                <li>Using architecture-specific malware binaries</li>
+                <li>Connecting compromised devices to a botnet</li>
+                <li>Receiving commands from remote infrastructure</li>
+                <li>Launching distributed denial-of-service attacks</li>
+            </ul>
+
+            <h2>Botnet Operation</h2>
+
+            <p>
+                Mirai uses a scanning and infection process to
+                expand its botnet.
+
+                First, it searches for devices exposing Telnet
+                services on commonly used ports. It then attempts
+                authentication using predefined credentials.
+
+                Successfully compromised devices are reported
+                to infrastructure used by the malware's loader.
+                The loader installs a binary compatible with
+                the device's architecture.
+
+                Once infected, devices can receive attack
+                instructions and generate large volumes of
+                network traffic against selected targets.
+            </p>
+
+            <h2>Historical Timeline</h2>
+
+            <ul>
+                <li>
+                    <strong>August 2016:</strong>
+                    Mirai scanning activity is first observed.
+                </li>
+                <li>
+                    <strong>September 2016:</strong>
+                    A Mirai botnet launches a major DDoS attack
+                    against the Krebs on Security website.
+                </li>
+                <li>
+                    <strong>September 30, 2016:</strong>
+                    Mirai source code is publicly released.
+                </li>
+                <li>
+                    <strong>October 21, 2016:</strong>
+                    A Mirai-based attack targets DNS provider Dyn,
+                    disrupting access to many popular online services.
+                </li>
+                <li>
+                    <strong>Following months:</strong>
+                    Multiple Mirai variants emerge as other
+                    actors reuse and modify the publicly released code.
+                </li>
+            </ul>
+
+            <h2>Impact</h2>
+
+            <p>
+                Mirai was responsible for several major DDoS attacks
+                in 2016.
+
+                One widely reported incident targeted DNS provider
+                Dyn on October 21. The disruption affected access
+                to numerous websites and online services.
+
+                The attack demonstrated how poorly secured IoT
+                devices could be combined into a powerful attack
+                infrastructure.
+
+                The public release of Mirai's source code also
+                contributed to the development of numerous variants,
+                extending its influence beyond the original botnet.
+            </p>
+
+            <h2>References</h2>
+
+            <ul>
+                <li>
+                    <a href="https://www.microsoft.com/en-us/wdsi/threats/malware-encyclopedia-description?Name=Backdoor%3ALinux%2FMirai.A"
+                       target="_blank" rel="noopener noreferrer">
+                        Microsoft Security Intelligence - Mirai
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://www.ic3.gov/PSA/2017/PSA171017"
+                       target="_blank" rel="noopener noreferrer">
+                        FBI IC3 - Internet of Things Security
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://research.google/pubs/understanding-the-mirai-botnet/"
+                       target="_blank" rel="noopener noreferrer">
+                        Google Research - Understanding the Mirai Botnet
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://krebsonsecurity.com/2016/10/source-code-for-iot-botnet-mirai-released/"
+                       target="_blank" rel="noopener noreferrer">
+                        Krebs on Security - Mirai Source Code Released
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://www.justice.gov/usao-nj/pr/justice-department-announces-charges-and-guilty-pleas-three-computer-crime-cases"
+                       target="_blank" rel="noopener noreferrer">
+                        U.S. Department of Justice - Mirai Botnet Cases
+                    </a>
+                </li>
+            </ul>
+
+            <h2>Research Notes</h2>
+
+            <p>
+                Mirai is a useful case study for understanding
+                IoT malware propagation and botnet architecture.
+
+                During analysis, researchers can examine binary
+                architecture, embedded credential lists, strings,
+                network indicators and communication patterns.
+
+                Important behavioral characteristics include
+                Telnet scanning, authentication attempts against
+                default credentials, communication with loader
+                infrastructure and subsequent C2 activity.
+
+                Researchers should also consider that the original
+                Mirai infection was generally memory-resident and
+                did not persist across device reboots. However,
+                vulnerable devices could be reinfected if their
+                security weaknesses remained unaddressed.
+
+                Malware samples should only be handled in an
+                isolated analysis environment.
+            </p>
+
+        </section>
+
+        <div class="back-link">
+            <a href="index.html">← Back to Malware Database</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <span>NULLTRACE © 2026</span>
+            <span>INDEPENDENT RESEARCH PROJECT</span>
+        </div>
+    </footer>
+
+</body>
+</html>
