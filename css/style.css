@@ -255,8 +255,6 @@ a {
     margin-top: 15px;
 }
 
-/* FOOTER */
-
 
 /* FOOTER */
 
@@ -316,4 +314,37 @@ a {
     .footer .container {
         flex-direction: column;
     }
+}
+
+/* FOOTER */
+
+.site-footer {
+    border-top: 1px solid #1b3025;
+    padding: 30px 20px;
+    margin-top: 60px;
+    text-align: center;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 18px;
+}
+
+.footer-links a {
+    color: #8b9b90;
+    font-size: 22px;
+    transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+    color: #39ff88;
+}
+
+.site-footer p {
+    color: #66756b;
+    font-size: 12px;
+    margin: 0;
 }
