@@ -1,0 +1,417 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to Dynamic Malware Analysis | NullTrace</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../database/database.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <nav class="container nav-container">
+
+            <a href="../index.html" class="logo">
+                Null<span>Trace</span>
+            </a>
+
+            <div class="navigation">
+                <a href="../index.html">Home</a>
+                <a href="../database/index.html">Database</a>
+                <a href="index.html">Research</a>
+            </div>
+
+        </nav>
+    </header>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="container database-page">
+
+        <section class="database-intro">
+
+            <p class="eyebrow">// RESEARCH ARTICLE</p>
+
+            <h1>Introduction to Dynamic Malware Analysis</h1>
+
+            <p>Category: Malware Analysis</p>
+            <p>Level: Beginner</p>
+
+        </section>
+
+
+        <!-- ARTICLE CONTENT -->
+        <section class="malware-details">
+
+            <h2>Introduction</h2>
+
+            <p>
+                Dynamic malware analysis is the process of
+                observing a program while it is running
+                in a controlled environment.
+            </p>
+
+            <p>
+                Unlike static analysis, which examines a file
+                without executing it, dynamic analysis focuses
+                on the actions and behavior of a program
+                during execution.
+            </p>
+
+            <p>
+                Analysts use this approach to understand
+                how suspicious software interacts with
+                the operating system, modifies files,
+                communicates over networks and creates
+                or modifies processes.
+            </p>
+
+
+            <h2>What Can Analysts Observe?</h2>
+
+            <p>
+                During dynamic analysis, researchers monitor
+                different aspects of system activity.
+                Common areas of investigation include:
+            </p>
+
+            <ul>
+                <li>Process creation and termination</li>
+                <li>File creation, modification and deletion</li>
+                <li>Registry modifications</li>
+                <li>Network connections and DNS requests</li>
+                <li>Loaded libraries and system activity</li>
+                <li>Changes to system configuration</li>
+            </ul>
+
+
+            <h2>Setting Up an Analysis Environment</h2>
+
+            <p>
+                Dynamic malware analysis should never be
+                performed directly on a normal everyday
+                computer.
+            </p>
+
+            <p>
+                Analysts use isolated environments to reduce
+                the risk of accidental infection, data loss
+                and unintended communication with external
+                systems.
+            </p>
+
+            <p>
+                A common approach is to use a virtual machine
+                (VM). A VM runs an operating system inside
+                another operating system, allowing researchers
+                to create a separate environment for analysis.
+            </p>
+
+            <p>
+                Important considerations include:
+            </p>
+
+            <ul>
+                <li>Use a dedicated virtual machine for analysis.</li>
+                <li>Take a clean snapshot before each investigation.</li>
+                <li>Disable shared folders and shared clipboard functionality.</li>
+                <li>Avoid connecting the analysis environment to personal accounts or sensitive data.</li>
+                <li>Use controlled networking, with external access disabled by default.</li>
+                <li>Revert the virtual machine to a clean snapshot after analysis.</li>
+            </ul>
+
+            <p>
+                Network isolation is particularly important.
+                Host-only networking or a disconnected virtual
+                network can be used for basic observation.
+                More advanced network simulations require
+                carefully configured lab infrastructure.
+            </p>
+
+            <p>
+                A virtual machine is not a perfect security
+                boundary. Unknown or potentially evasive
+                malware should only be handled in a properly
+                isolated research environment.
+            </p>
+
+
+            <h2>Common Tools</h2>
+
+            <p>
+                Malware analysts use several tools to observe
+                and document program behavior.
+            </p>
+
+            <ul>
+                <li>
+                    <strong>Process Monitor (Procmon):</strong>
+                    Monitors filesystem, registry and process
+                    activity on Windows.
+                </li>
+
+                <li>
+                    <strong>Process Explorer:</strong>
+                    Provides detailed information about running
+                    processes, loaded modules and process
+                    relationships.
+                </li>
+
+                <li>
+                    <strong>Wireshark:</strong>
+                    Captures and analyzes network traffic.
+                </li>
+
+                <li>
+                    <strong>Autoruns:</strong>
+                    Helps identify programs and components
+                    configured to start automatically.
+                </li>
+
+                <li>
+                    <strong>Regshot:</strong>
+                    Compares registry snapshots to identify
+                    changes between two system states.
+                </li>
+            </ul>
+
+
+            <h2>Understanding Process Activity</h2>
+
+            <p>
+                Processes are one of the first areas analysts
+                investigate during dynamic analysis.
+            </p>
+
+            <p>
+                A process represents a running instance of
+                a program. By observing process activity,
+                analysts can identify which applications
+                are launched, which child processes are
+                created and how programs interact with
+                the operating system.
+            </p>
+
+            <p>
+                For example, Process Monitor can record
+                process creation events and other system
+                activity. This information helps researchers
+                understand the sequence of actions performed
+                by a program.
+            </p>
+
+
+            <h2>Monitoring Filesystem and Registry Changes</h2>
+
+            <p>
+                Some malicious programs attempt to modify
+                files, create directories or change Windows
+                Registry settings.
+            </p>
+
+            <p>
+                These actions can provide useful indicators
+                of program behavior.
+            </p>
+
+            <p>
+                Analysts can use Process Monitor to observe
+                filesystem and registry operations.
+                Tools such as Regshot can also compare
+                registry states before and after a test.
+            </p>
+
+            <p>
+                Changes to startup locations, system
+                configuration and application settings
+                may be particularly relevant when
+                investigating persistence mechanisms.
+            </p>
+
+
+            <h2>Network Activity Analysis</h2>
+
+            <p>
+                Network monitoring is another important
+                part of dynamic malware analysis.
+            </p>
+
+            <p>
+                Some malware communicates with external
+                infrastructure to receive instructions,
+                transmit information or download additional
+                components.
+            </p>
+
+            <p>
+                Analysts examine network activity to identify:
+            </p>
+
+            <ul>
+                <li>DNS queries</li>
+                <li>IP addresses and destination ports</li>
+                <li>HTTP and HTTPS connections</li>
+                <li>Unusual communication patterns</li>
+                <li>Repeated connection attempts</li>
+            </ul>
+
+            <p>
+                Wireshark allows researchers to capture
+                and inspect network packets. In an isolated
+                lab, simulated services can also help
+                researchers observe how software behaves
+                without allowing communication with
+                real external infrastructure.
+            </p>
+
+
+            <h2>Observing Program Behavior</h2>
+
+            <p>
+                Dynamic analysis is not simply about
+                collecting events. Analysts need to
+                understand how individual actions relate
+                to one another.
+            </p>
+
+            <p>
+                For example, an investigation might reveal
+                that a program creates a new process,
+                writes files to a directory and attempts
+                to establish a network connection.
+            </p>
+
+            <p>
+                Each observation provides additional
+                context about the program's behavior.
+                However, individual events should not
+                automatically be considered malicious.
+                Legitimate software can perform many
+                of the same operations.
+            </p>
+
+
+            <h2>Limitations of Dynamic Analysis</h2>
+
+            <p>
+                Although dynamic analysis provides valuable
+                behavioral information, it also has
+                limitations.
+            </p>
+
+            <ul>
+                <li>
+                    <strong>Environment awareness:</strong>
+                    Some malware can detect virtual machines
+                    or analysis environments.
+                </li>
+
+                <li>
+                    <strong>Delayed execution:</strong>
+                    Certain behaviors may only appear
+                    after a specific amount of time or
+                    under particular conditions.
+                </li>
+
+                <li>
+                    <strong>Incomplete observations:</strong>
+                    Analysts may not observe every possible
+                    behavior during a single investigation.
+                </li>
+
+                <li>
+                    <strong>Isolation:</strong>
+                    Restricted networking can prevent
+                    certain behaviors from appearing.
+                </li>
+            </ul>
+
+            <p>
+                For these reasons, dynamic analysis is
+                most effective when combined with static
+                analysis and other investigation methods.
+            </p>
+
+
+            <h2>Conclusion</h2>
+
+            <p>
+                Dynamic malware analysis allows researchers
+                to observe how programs behave during
+                execution and how they interact with
+                their environment.
+            </p>
+
+            <p>
+                By monitoring processes, filesystem
+                activity, registry modifications and
+                network communication, analysts can
+                develop a better understanding of
+                suspicious software.
+            </p>
+
+            <p>
+                Combined with static analysis, dynamic
+                analysis provides a more complete
+                approach to malware investigation.
+            </p>
+
+
+            <h2>References</h2>
+
+            <ul>
+                <li>
+                    <a href="https://learn.microsoft.com/en-us/sysinternals/downloads/procmon"
+                       target="_blank" rel="noopener noreferrer">
+                        Microsoft Sysinternals - Process Monitor
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://learn.microsoft.com/en-us/sysinternals/downloads/process-explorer"
+                       target="_blank" rel="noopener noreferrer">
+                        Microsoft Sysinternals - Process Explorer
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://www.wireshark.org/docs/"
+                       target="_blank" rel="noopener noreferrer">
+                        Wireshark Documentation
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://learn.microsoft.com/en-us/sysinternals/downloads/autoruns"
+                       target="_blank" rel="noopener noreferrer">
+                        Microsoft Sysinternals - Autoruns
+                    </a>
+                </li>
+            </ul>
+
+        </section>
+
+
+        <!-- BACK LINK -->
+        <div class="back-link">
+            <a href="index.html">← Back to Research</a>
+        </div>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 NullTrace. For educational and research purposes.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

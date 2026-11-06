@@ -1,0 +1,286 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to YARA Rules | NullTrace</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../database/database.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <nav class="container nav-container">
+
+            <a href="../index.html" class="logo">
+                Null<span>Trace</span>
+            </a>
+
+            <div class="navigation">
+                <a href="../index.html">Home</a>
+                <a href="../database/index.html">Database</a>
+                <a href="index.html">Research</a>
+            </div>
+
+        </nav>
+    </header>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="container database-page">
+
+        <section class="database-intro">
+
+            <p class="eyebrow">// RESEARCH ARTICLE</p>
+
+            <h1>Introduction to YARA Rules</h1>
+
+            <p>Category: Malware Detection</p>
+            <p>Level: Beginner</p>
+
+        </section>
+
+
+        <!-- ARTICLE CONTENT -->
+        <section class="malware-details">
+
+            <h2>Introduction</h2>
+
+            <p>
+                YARA is a pattern-matching tool commonly used
+                by malware analysts and security researchers
+                to identify and classify suspicious files.
+            </p>
+
+            <p>
+                It allows analysts to create rules based on
+                specific characteristics found within files,
+                such as text strings, hexadecimal patterns
+                and other identifiable data.
+            </p>
+
+            <p>
+                Instead of relying only on file names or
+                cryptographic hashes, YARA can identify
+                files that share particular characteristics.
+            </p>
+
+
+            <h2>How Does YARA Work?</h2>
+
+            <p>
+                YARA scans files and compares their contents
+                against rules written by analysts.
+                When a file matches the conditions defined
+                in a rule, YARA reports a match.
+            </p>
+
+            <p>
+                A rule can contain three main sections:
+            </p>
+
+            <ul>
+                <li><strong>Meta:</strong> Information describing the rule.</li>
+                <li><strong>Strings:</strong> Patterns that YARA searches for.</li>
+                <li><strong>Condition:</strong> The logic that determines whether a match occurs.</li>
+            </ul>
+
+
+            <h2>Anatomy of a YARA Rule</h2>
+
+            <p>
+                The following example demonstrates a simple
+                YARA rule using a harmless test string.
+            </p>
+
+            <pre><code>rule NullTrace_Test_Rule
+{
+    meta:
+        description = "Example YARA detection rule"
+        author = "NullTrace"
+        purpose = "Educational demonstration"
+
+    strings:
+        $marker = "NULLTRACE_YARA_TEST"
+
+    condition:
+        $marker
+}</code></pre>
+
+            <p>
+                In this example, the rule searches for the
+                text string <strong>NULLTRACE_YARA_TEST</strong>.
+                If the string is found in a scanned file,
+                the condition is satisfied and YARA reports
+                a match.
+            </p>
+
+
+            <h2>Understanding the Rule Components</h2>
+
+            <p>
+                <strong>Meta section:</strong>
+                Contains descriptive information about the
+                rule, including its author and purpose.
+                This information does not affect detection.
+            </p>
+
+            <p>
+                <strong>Strings section:</strong>
+                Defines the patterns YARA searches for.
+                These can include text strings, hexadecimal
+                byte sequences and regular expressions.
+            </p>
+
+            <p>
+                <strong>Condition section:</strong>
+                Defines the logical requirements for a match.
+                Conditions can use operators such as AND, OR,
+                NOT and comparisons.
+            </p>
+
+
+            <h2>Common String Modifiers</h2>
+
+            <p>
+                YARA supports modifiers that change how
+                strings are matched.
+            </p>
+
+            <ul>
+                <li><strong>nocase:</strong> Makes text matching case-insensitive.</li>
+                <li><strong>wide:</strong> Searches for UTF-16 little-endian strings.</li>
+                <li><strong>ascii:</strong> Searches for ASCII strings.</li>
+                <li><strong>fullword:</strong> Matches complete words rather than partial strings.</li>
+            </ul>
+
+
+            <h2>Testing a YARA Rule</h2>
+
+            <p>
+                Analysts can test YARA rules against files
+                using the YARA command-line utility.
+            </p>
+
+            <p>
+                For a safe demonstration, create a normal
+                text file containing the following line:
+            </p>
+
+            <pre><code>NULLTRACE_YARA_TEST</code></pre>
+
+            <p>
+                Save the file as <strong>test.txt</strong>
+                and save the example rule as
+                <strong>nulltrace.yar</strong>.
+            </p>
+
+            <p>
+                Run the following command:
+            </p>
+
+            <pre><code>yara nulltrace.yar test.txt</code></pre>
+
+            <p>
+                YARA should report a match because the
+                test file contains the string defined
+                in the rule.
+            </p>
+
+            <p>
+                This demonstration uses harmless test data
+                and does not require executing malware.
+            </p>
+
+
+            <h2>Limitations and False Positives</h2>
+
+            <p>
+                YARA rules are only as reliable as the
+                patterns and conditions defined by their
+                authors.
+            </p>
+
+            <p>
+                Generic strings may appear in legitimate
+                software as well as malicious files.
+                This can result in false positives.
+            </p>
+
+            <p>
+                Malware authors may also modify their
+                programs to avoid matching existing rules.
+                Therefore, rules should be tested, reviewed
+                and updated regularly.
+            </p>
+
+            <p>
+                A YARA match is an indicator for further
+                investigation, not automatic proof that
+                a file is malicious.
+            </p>
+
+
+            <h2>Conclusion</h2>
+
+            <p>
+                YARA is a useful tool for identifying
+                patterns and characteristics associated
+                with suspicious files.
+            </p>
+
+            <p>
+                Understanding how to write and test
+                YARA rules is a valuable skill for malware
+                analysts and threat researchers.
+            </p>
+
+            <p>
+                It provides a practical way to turn
+                observations from malware research into
+                reusable detection logic.
+            </p>
+
+
+            <h2>References</h2>
+
+            <ul>
+                <li>
+                    <a href="https://yara.readthedocs.io/"
+                       target="_blank" rel="noopener noreferrer">
+                        YARA Official Documentation
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/VirusTotal/yara"
+                       target="_blank" rel="noopener noreferrer">
+                        YARA GitHub Repository
+                    </a>
+                </li>
+            </ul>
+
+        </section>
+
+
+        <!-- BACK LINK -->
+        <div class="back-link">
+            <a href="index.html">← Back to Research</a>
+        </div>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 NullTrace. For educational and research purposes.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
